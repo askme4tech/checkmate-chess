@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
-import { FaChessKnight } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [

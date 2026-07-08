@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { siteConfig } from '../config/site';
-import { FaChessKnight, FaFacebookF, FaInstagram, FaTwitter, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
