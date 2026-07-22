@@ -62,14 +62,21 @@ export default function Courses() {
           </p>
           
           {/* Tabs Navigation */}
-          <div className="flex flex-wrap justify-center gap-3 mb-16">
+          <div 
+            className="flex overflow-x-auto pb-4 px-4 -mx-4 md:pb-0 md:mx-0 md:px-0 md:flex-wrap md:justify-center gap-3 mb-12 snap-x"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' as any }}
+          >
+            {/* Inject minimal style for hiding scrollbar in webkit */}
+            <style dangerouslySetInnerHTML={{__html: `
+              .flex.overflow-x-auto::-webkit-scrollbar { display: none; }
+            `}} />
             {siteConfig.courses.map((course) => {
               const isActive = activeCourseId === course.id;
               return (
                 <button
                   key={course.id}
                   onClick={() => setActiveCourseId(course.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                  className={`snap-center shrink-0 flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                     isActive 
                       ? 'bg-gradient-to-r from-gold-600 to-gold-500 text-white shadow-[0_0_15px_rgba(212,175,55,0.4)] scale-105' 
                       : 'bg-dark-800 text-gray-400 hover:text-white hover:bg-dark-700 border border-white/10'
@@ -98,13 +105,13 @@ export default function Courses() {
             >
               {/* Left Column: Image & Meta */}
               <div className="lg:col-span-5 space-y-8">
-                <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-dark-900 group min-h-[400px] flex flex-col justify-end">
+                <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-dark-900 group min-h-[300px] md:min-h-[400px] flex flex-col justify-end">
                   {/* Background gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-dark-800 to-dark-950 z-0" />
                   
                   {/* Giant Clip Art Icon */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700 z-10">
-                    <div className="text-[18rem] text-gold-500 drop-shadow-[0_0_50px_rgba(212,175,55,0.6)]">
+                    <div className="text-[12rem] md:text-[18rem] text-gold-500 drop-shadow-[0_0_50px_rgba(212,175,55,0.6)]">
                       {getIconForCourse(activeCourse.id)}
                     </div>
                   </div>

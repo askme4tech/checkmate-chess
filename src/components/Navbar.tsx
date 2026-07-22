@@ -45,7 +45,7 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navLinks.filter(link => !['About', 'Coaches'].includes(link.name)).map((link) => (
               <NavLink
                 key={link.name}
                 to={link.path}
@@ -56,6 +56,22 @@ export default function Navbar() {
                 {link.name}
               </NavLink>
             ))}
+            
+            {/* Hamburger Dropdown for About & Coaches */}
+            <div className="relative group">
+              <button className="flex items-center gap-2 text-sm uppercase tracking-wider text-gray-300 hover:text-gold-400 py-2">
+                <FiMenu className="text-lg" />
+              </button>
+              <div className="absolute top-full right-0 w-40 bg-dark-900 border border-white/10 rounded shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col py-2">
+                <Link to="/about" className="px-4 py-2 text-sm uppercase tracking-wider text-gray-300 hover:text-gold-400 hover:bg-white/5 transition-colors">
+                  About
+                </Link>
+                <Link to="/coaches" className="px-4 py-2 text-sm uppercase tracking-wider text-gray-300 hover:text-gold-400 hover:bg-white/5 transition-colors">
+                  Coaches
+                </Link>
+              </div>
+            </div>
+
             <a href="https://checkmate-1zt6.onrender.com/" target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-wider transition-colors duration-300 bg-gold-500/10 text-gold-500 hover:bg-gold-500 hover:text-white px-4 py-2 border border-gold-500/50 rounded-sm ml-2">
               Portal
             </a>
