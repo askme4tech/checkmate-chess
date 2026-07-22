@@ -34,8 +34,8 @@ export default function Navbar() {
       <div className={`container mx-auto px-4 md:px-6 transition-all duration-300 ${scrolled ? 'py-2' : 'py-4'}`}>
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group" onMouseEnter={() => setHasHoveredLogo(true)}>
-            <div className="w-14 h-14 md:w-20 md:h-20 overflow-hidden rounded shadow-lg group-hover:scale-105 transition-transform duration-300 border border-gold-500/30">
-              <img src="/logo.jpeg" alt="CHECK MATE Logo" className="w-full h-full object-cover" />
+            <div className="w-14 h-14 md:w-16 md:h-16 overflow-visible group-hover:scale-110 transition-transform duration-300">
+              <img src="/logo.jpeg" alt="CHECK MATE Logo" className="w-full h-full object-contain mix-blend-screen opacity-90 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="flex flex-col items-center">
               <h1 className={`relative text-2xl md:text-4xl font-bold tracking-widest text-gray-900 font-serif [-webkit-text-stroke:1px_currentColor] pb-1 mb-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-gold-500 after:transition-all after:duration-500 ${hasHoveredLogo ? 'after:w-full' : 'after:w-0 group-hover:after:w-full'}`}>CHECK MATE</h1>
