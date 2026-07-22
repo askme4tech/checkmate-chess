@@ -49,12 +49,6 @@ export default function Courses() {
       />
       
       <section className="py-20 bg-dark-800/30 text-center relative overflow-hidden">
-        {/* Background Decorative Elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-           <div className="absolute top-[-10%] left-[-5%] text-[30rem] text-white/5 opacity-30 select-none">♜</div>
-           <div className="absolute bottom-[-20%] right-[-10%] text-[40rem] text-gold-500/5 opacity-20 select-none">♚</div>
-        </div>
-
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">Our Programs</h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-12">
