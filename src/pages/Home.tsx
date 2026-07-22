@@ -4,7 +4,7 @@ import { useRef, useEffect } from 'react';
 import { siteConfig } from '../config/site';
 import PageTransition from '../components/PageTransition';
 import SEO from '../components/SEO';
-import { FaChessKing, FaChessKnight, FaChessPawn, FaTrophy, FaGlobe, FaUserTie, FaGraduationCap } from 'react-icons/fa';
+import { FaChessKing, FaChessKnight, FaChessPawn, FaChessBishop, FaChessRook, FaChessQueen, FaTrophy, FaGlobe, FaUserTie, FaGraduationCap } from 'react-icons/fa';
 
 function Counter({ from = 0, to, suffix = "" }: { from?: number; to: number; suffix?: string }) {
   const nodeRef = useRef<HTMLSpanElement>(null);
@@ -88,23 +88,27 @@ export default function Home() {
               </div>
             </motion.div>
             
-            {/* Right Column - Dynamic Composition (Seamless Blend) */}
+            {/* Right Column - Dynamic Composition (Seamless Blend) - Hidden on Mobile */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="relative flex justify-center items-center h-[380px] sm:h-[450px] lg:h-[600px] mt-8 lg:mt-0 w-full"
+              className="relative hidden md:flex justify-center items-center h-[380px] sm:h-[450px] lg:h-[600px] mt-8 lg:mt-0 w-full group/hero"
             >
               {/* Floating feature cards */}
               <motion.div 
                 animate={{ y: [0, -10, 0] }} 
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 left-0 md:top-4 md:left-[-10px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
+                whileHover="hover"
+                whileTap="hover"
+                className="absolute top-0 left-0 md:top-4 md:left-[-10px] bg-transparent p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Laser Focus</span>
+                <span className="relative inline-block text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center group-hover:text-gold-500 transition-colors duration-300 pb-1">
+                  Laser Focus
+                  <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gold-500 transition-all duration-300 md:group-hover:w-full"></span>
+                </span>
                 <motion.div 
-                  whileHover={{ scale: 1.3, rotate: [0, 15, -15, 0], transition: { duration: 0.3 } }}
-                  whileTap={{ scale: 1.3, rotate: [0, 15, -15, 0] }}
+                  variants={{ hover: { scale: 1.4, rotate: [0, 15, -15, 0], transition: { duration: 0.4, repeat: Infinity } } }}
                   className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   🎯
@@ -114,12 +118,16 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, 15, 0] }} 
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-6 left-[-10px] md:bottom-12 md:left-[-30px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
+                whileHover="hover"
+                whileTap="hover"
+                className="absolute bottom-6 left-[-10px] md:bottom-12 md:left-[-30px] bg-transparent p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Master Strategy</span>
+                <span className="relative inline-block text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center group-hover:text-gold-500 transition-colors duration-300 pb-1">
+                  Master Strategy
+                  <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gold-500 transition-all duration-300 md:group-hover:w-full"></span>
+                </span>
                 <motion.div 
-                  whileHover={{ y: -15, x: 15, transition: { type: "spring", stiffness: 300 } }}
-                  whileTap={{ y: -15, x: 15 }}
+                  variants={{ hover: { y: [0, -15, 0], x: [0, 15, 0], transition: { duration: 0.8, repeat: Infinity } } }}
                   className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   ♟️
@@ -129,12 +137,16 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, -15, 0] }} 
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="absolute top-6 right-[-5px] md:top-12 md:right-[-20px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
+                whileHover="hover"
+                whileTap="hover"
+                className="absolute top-6 right-[-5px] md:top-12 md:right-[-20px] bg-transparent p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Mental Agility</span>
+                <span className="relative inline-block text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center group-hover:text-gold-500 transition-colors duration-300 pb-1">
+                  Mental Agility
+                  <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gold-500 transition-all duration-300 md:group-hover:w-full"></span>
+                </span>
                 <motion.div 
-                  whileHover={{ scale: [1, 1.2, 1], transition: { repeat: Infinity, duration: 0.6 } }}
-                  whileTap={{ scale: [1, 1.2, 1], transition: { repeat: Infinity, duration: 0.6 } }}
+                  variants={{ hover: { scale: [1, 1.3, 1], transition: { repeat: Infinity, duration: 0.6 } } }}
                   className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   🧠
@@ -144,12 +156,16 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, 10, 0] }} 
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                className="absolute bottom-20 right-[-10px] md:bottom-28 md:right-[-40px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
+                whileHover="hover"
+                whileTap="hover"
+                className="absolute bottom-20 right-[-10px] md:bottom-28 md:right-[-40px] bg-transparent p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Tournament Success</span>
+                <span className="relative inline-block text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center group-hover:text-gold-500 transition-colors duration-300 pb-1">
+                  Tournament Success
+                  <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gold-500 transition-all duration-300 md:group-hover:w-full"></span>
+                </span>
                 <motion.div 
-                  whileHover={{ rotate: [0, -15, 15, -15, 15, 0], scale: 1.2, transition: { duration: 0.5 } }}
-                  whileTap={{ rotate: [0, -15, 15, -15, 15, 0], scale: 1.2 }}
+                  variants={{ hover: { rotate: [0, -20, 20, -20, 20, 0], scale: 1.3, transition: { duration: 0.6, repeat: Infinity } } }}
                   className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   🏆
@@ -159,12 +175,16 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, -8, 0] }} 
                 transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute bottom-[-15px] right-12 md:bottom-[-10px] md:right-24 bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
+                whileHover="hover"
+                whileTap="hover"
+                className="absolute bottom-[-15px] right-12 md:bottom-[-10px] md:right-24 bg-transparent p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Sportsmanship</span>
+                <span className="relative inline-block text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center group-hover:text-gold-500 transition-colors duration-300 pb-1">
+                  Sportsmanship
+                  <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gold-500 transition-all duration-300 md:group-hover:w-full"></span>
+                </span>
                 <motion.div 
-                  whileHover={{ rotate: [0, 20, -20, 20, -20, 0], transition: { duration: 0.5 } }}
-                  whileTap={{ rotate: [0, 20, -20, 20, -20, 0] }}
+                  variants={{ hover: { y: [0, -10, 0, 10, 0], transition: { duration: 0.8, repeat: Infinity } } }}
                   className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   🤝
@@ -172,11 +192,11 @@ export default function Home() {
               </motion.div>
 
               {/* Main Center Image - Seamlessly Blended */}
-              <div className="relative z-10 w-full h-full flex items-center justify-center pointer-events-none">
+              <div className="relative z-10 w-full h-full flex items-center justify-center pointer-events-auto">
                 <img 
                   src="/images/custom-triumph.png" 
                   alt="Triumphant King" 
-                  className="w-[120%] h-[120%] max-w-none object-cover sm:object-contain transition-all duration-1000 ease-in-out hover:scale-105 grayscale hover:grayscale-0 z-10 mix-blend-multiply"
+                  className="w-[120%] h-[120%] max-w-none object-cover sm:object-contain transition-all duration-1000 ease-in-out md:group-hover/hero:scale-105 grayscale-0 md:grayscale md:group-hover/hero:grayscale-0 z-10 mix-blend-multiply"
                   style={{ 
                     maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)', 
                     WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)' 
