@@ -39,34 +39,42 @@ export const siteConfig = {
   courses: [
     {
       id: "beginner",
-      title: "Beginner Level",
-      description: "Learn the basics of chess: piece movements, rules, simple checkmates, and opening principles.",
+      title: "Beginner",
+      description: "Introduction to Chess fundamentals and building a strong foundation. We cover Board Basics, Pieces Movement, Basic Tactics, and Rules & Regulations.",
       duration: "3 Months",
       ageGroup: "5+ Years",
       fees: "Contact for details"
     },
     {
-      id: "intermediate",
-      title: "Intermediate Level",
-      description: "Master tactics, positional play, middle-game planning, and basic endgames.",
+      id: "intermediate-1",
+      title: "Intermediate Level 1",
+      description: "Transitioning from basics to tactical thinking and basic planning. Includes Advanced Tactics, Basic Openings, Simple Endgames, and Strategy Concepts.",
       duration: "6 Months",
+      ageGroup: "All Ages",
+      fees: "Contact for details"
+    },
+    {
+      id: "intermediate-2",
+      title: "Intermediate Level 2",
+      description: "Deepening positional play, evaluating positions, and formulating plans. Focuses on Positional Understanding, Complex Openings, Middle Game Strategies, and Endgame Mastery.",
+      duration: "Ongoing",
       ageGroup: "All Ages",
       fees: "Contact for details"
     },
     {
       id: "advanced",
       title: "Advanced Level",
-      description: "Deep opening preparation, complex calculations, tournament readiness, and psychological training.",
+      description: "Refining skills for competitive play and high-level tournament performance. Covers Grandmaster Games Analysis, Advanced Calculation, Specialized Openings, and Tournament Preparation.",
       duration: "Ongoing",
       ageGroup: "Rated Players",
       fees: "Contact for details"
     },
     {
-      id: "weekend",
-      title: "Weekend Classes",
-      description: "Special intensive batches for students and professionals who are busy during the weekdays.",
-      duration: "Ongoing",
-      ageGroup: "All Ages",
+      id: "professional",
+      title: "Professional",
+      description: "Expert-level training for rated players aiming for mastery. Includes Tailored Coaching, Psychological Resilience, Deep Opening Preparation, and Complex Endgame Analysis.",
+      duration: "Flexible",
+      ageGroup: "Rated Players",
       fees: "Contact for details"
     },
     {

@@ -47,10 +47,17 @@ export default function Courses() {
             {siteConfig.courses.map((course, index) => (
               <motion.div 
                 key={course.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  show: { 
+                    opacity: 1, 
+                    y: 0, 
+                    transition: { delay: index * 0.1, duration: 0.5, staggerChildren: 0.15, delayChildren: index * 0.1 + 0.3 } 
+                  }
+                }}
                 className={`glass-card flex flex-col h-full overflow-hidden group border-2 ${index % 2 === 1 ? 'bg-dark-800/80 border-gold-500/20' : 'bg-dark-900/60 border-white/5'}`}
               >
                 <div className="bg-gradient-to-r from-gold-600/20 to-transparent p-8 border-b border-white/5 relative">
@@ -63,23 +70,23 @@ export default function Courses() {
                 <div className="p-8 flex-grow flex flex-col">
                   <p className="text-gray-400 mb-8 flex-grow">{course.description}</p>
                   
-                  <ul className="space-y-4 mb-8">
-                    <li className="flex items-center gap-3 text-sm text-gray-300">
+                  <motion.ul className="space-y-4 mb-8">
+                    <motion.li variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex items-center gap-3 text-sm text-gray-300">
                       <FaClock className="text-gold-500" />
                       <span className="font-medium text-white w-24">Duration:</span>
                       {course.duration}
-                    </li>
-                    <li className="flex items-center gap-3 text-sm text-gray-300">
+                    </motion.li>
+                    <motion.li variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex items-center gap-3 text-sm text-gray-300">
                       <FaUserGraduate className="text-gold-500" />
                       <span className="font-medium text-white w-24">Age Group:</span>
                       {course.ageGroup}
-                    </li>
-                    <li className="flex items-center gap-3 text-sm text-gray-300">
+                    </motion.li>
+                    <motion.li variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex items-center gap-3 text-sm text-gray-300">
                       <FaInfoCircle className="text-gold-500" />
                       <span className="font-medium text-white w-24">Fees:</span>
                       {course.fees}
-                    </li>
-                  </ul>
+                    </motion.li>
+                  </motion.ul>
                   
                   <Link to="/contact" className="btn-secondary w-full text-sm">
                     Enquire Now

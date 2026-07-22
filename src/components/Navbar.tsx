@@ -16,6 +16,7 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hasHoveredLogo, setHasHoveredLogo] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -24,16 +25,21 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'glass py-3' : 'bg-transparent py-5'}`}>
-      <div className="container mx-auto px-4 md:px-6">
+    <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'glass' : 'bg-transparent'}`}>
+      {/* Promotional Top Banner */}
+      <div className="bg-gradient-to-r from-gold-400 to-gold-600 text-dark-900 text-center py-2 px-4 text-xs md:text-sm font-bold tracking-wide shadow-sm">
+        🏆 Shaping the Champions of Tomorrow. <Link to="/contact" className="underline underline-offset-2 hover:text-white transition-colors ml-2">Claim Your Free Trial Class!</Link>
+      </div>
+      
+      <div className={`container mx-auto px-4 md:px-6 transition-all duration-300 ${scrolled ? 'py-2' : 'py-4'}`}>
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 md:w-12 md:h-12 overflow-hidden rounded shadow-lg group-hover:scale-105 transition-transform duration-300 border border-gold-500/30">
+          <Link to="/" className="flex items-center gap-3 group" onMouseEnter={() => setHasHoveredLogo(true)}>
+            <div className="w-14 h-14 md:w-20 md:h-20 overflow-hidden rounded shadow-lg group-hover:scale-105 transition-transform duration-300 border border-gold-500/30">
               <img src="/logo.jpeg" alt="CHECK MATE Logo" className="w-full h-full object-cover" />
             </div>
-            <div>
-              <h1 className="text-xl md:text-2xl font-bold tracking-wider text-white font-serif">CHECK MATE</h1>
-              <p className="text-[10px] text-gold-400 uppercase tracking-widest -mt-1 font-sans">School of Chess</p>
+            <div className="flex flex-col items-center">
+              <h1 className={`relative text-2xl md:text-4xl font-bold tracking-widest text-gray-900 font-serif [-webkit-text-stroke:1px_currentColor] pb-1 mb-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-gold-500 after:transition-all after:duration-500 ${hasHoveredLogo ? 'after:w-full' : 'after:w-0 group-hover:after:w-full'}`}>CHECK MATE</h1>
+              <p className="text-xs md:text-sm text-gold-500 uppercase tracking-[0.2em] font-sans font-semibold">School of Chess</p>
             </div>
           </Link>
 
@@ -50,6 +56,9 @@ export default function Navbar() {
                 {link.name}
               </NavLink>
             ))}
+            <a href="https://checkmate-1zt6.onrender.com/" target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-wider transition-colors duration-300 bg-gold-500/10 text-gold-500 hover:bg-gold-500 hover:text-white px-4 py-2 border border-gold-500/50 rounded-sm ml-2">
+              Portal
+            </a>
           </nav>
 
           {/* Mobile Toggle */}
@@ -85,6 +94,9 @@ export default function Navbar() {
                   {link.name}
                 </NavLink>
               ))}
+              <a href="https://checkmate-1zt6.onrender.com/" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="px-6 py-4 text-sm uppercase tracking-wider transition-colors duration-300 text-gold-500 hover:bg-white/5 hover:text-gold-400 font-semibold border-t border-white/5 mt-2">
+                Portal
+              </a>
             </nav>
           </motion.div>
         )}
