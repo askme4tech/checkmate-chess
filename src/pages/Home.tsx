@@ -221,65 +221,27 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {/* Beginner */}
-            <div className="glass-card border-white/5 p-6 md:p-10 text-center group">
-              <div className="w-16 h-16 md:w-24 md:h-24 mx-auto bg-dark-800 rounded-full flex items-center justify-center border border-gold-500/30 mb-6 md:mb-8 group-hover:bg-gold-500 transition-colors">
-                <motion.div
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <FaChessPawn className="text-3xl md:text-5xl text-gold-500 group-hover:text-dark-900 transition-colors" />
-                </motion.div>
-              </div>
-              <h3 className="text-2xl md:text-3xl font-serif text-white mb-2 md:mb-4">Beginner</h3>
-              <p className="text-gray-400 mb-6 md:mb-8 h-auto md:h-24">Learn the rules, piece movements, basic checkmates, and fundamental opening principles.</p>
-              <ul className="text-left space-y-3 mb-6 md:mb-8 text-sm text-gray-300">
-                <li className="flex items-center gap-2"><span className="text-gold-500">✓</span> Piece Movements & Captures</li>
-                <li className="flex items-center gap-2"><span className="text-gold-500">✓</span> Basic Checkmate Patterns</li>
-                <li className="flex items-center gap-2"><span className="text-gold-500">✓</span> Opening Principles</li>
-              </ul>
-              <Link to="/courses" className="text-gold-500 font-bold uppercase tracking-widest text-xs md:text-sm hover:text-white transition-colors">Learn More →</Link>
-            </div>
+            {siteConfig.courses.map((course, index) => {
+              const icons = [FaChessPawn, FaChessKnight, FaChessBishop, FaChessRook, FaChessQueen, FaChessKing];
+              const Icon = icons[index % icons.length];
+              const isHighlight = index === 1 || index === 4;
 
-            {/* Intermediate */}
-            <div className="glass-card border-gold-500 p-6 md:p-10 text-center transform md:-translate-y-4 group">
-              <div className="w-16 h-16 md:w-24 md:h-24 mx-auto bg-gold-500 rounded-full flex items-center justify-center border-4 border-dark-900 mb-6 md:mb-8">
-                <motion.div
-                  animate={{ y: [0, -12, 0], rotate: [0, 10, 0] }}
-                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <FaChessKnight className="text-3xl md:text-5xl text-dark-900" />
-                </motion.div>
-              </div>
-              <h3 className="text-2xl md:text-3xl font-serif text-white mb-2 md:mb-4">Intermediate</h3>
-              <p className="text-gray-400 mb-6 md:mb-8 h-auto md:h-24">Master tactics, combinations, positional understanding, and essential endgame techniques.</p>
-              <ul className="text-left space-y-3 mb-6 md:mb-8 text-sm text-gray-300">
-                <li className="flex items-center gap-2"><span className="text-gold-500">✓</span> Tactical Motifs (Pins, Forks)</li>
-                <li className="flex items-center gap-2"><span className="text-gold-500">✓</span> Positional Evaluation</li>
-                <li className="flex items-center gap-2"><span className="text-gold-500">✓</span> Essential Endgames</li>
-              </ul>
-              <Link to="/courses" className="text-gold-500 font-bold uppercase tracking-widest text-xs md:text-sm hover:text-white transition-colors">Learn More →</Link>
-            </div>
-
-            {/* Advanced */}
-            <div className="glass-card border-white/5 p-6 md:p-10 text-center group">
-              <div className="w-16 h-16 md:w-24 md:h-24 mx-auto bg-dark-800 rounded-full flex items-center justify-center border border-gold-500/30 mb-6 md:mb-8 group-hover:bg-gold-500 transition-colors">
-                <motion.div
-                  animate={{ scale: [1, 1.15, 1] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <FaChessKing className="text-3xl md:text-5xl text-gold-500 group-hover:text-dark-900 transition-colors" />
-                </motion.div>
-              </div>
-              <h3 className="text-2xl md:text-3xl font-serif text-white mb-2 md:mb-4">Advanced</h3>
-              <p className="text-gray-400 mb-6 md:mb-8 h-auto md:h-24">Tournament preparation, opening repertoire building, and complex calculation exercises.</p>
-              <ul className="text-left space-y-3 mb-6 md:mb-8 text-sm text-gray-300">
-                <li className="flex items-center gap-2"><span className="text-gold-500">✓</span> Opening Repertoire</li>
-                <li className="flex items-center gap-2"><span className="text-gold-500">✓</span> Complex Calculation</li>
-                <li className="flex items-center gap-2"><span className="text-gold-500">✓</span> Tournament Psychology</li>
-              </ul>
-              <Link to="/courses" className="text-gold-500 font-bold uppercase tracking-widest text-xs md:text-sm hover:text-white transition-colors">Learn More →</Link>
-            </div>
+              return (
+                <div key={course.id} className={`glass-card p-6 md:p-10 text-center group ${isHighlight ? 'border-gold-500 transform md:-translate-y-4' : 'border-white/5'}`}>
+                  <div className={`w-16 h-16 md:w-24 md:h-24 mx-auto rounded-full flex items-center justify-center mb-6 md:mb-8 transition-colors ${isHighlight ? 'bg-gold-500 border-4 border-dark-900' : 'bg-dark-800 border border-gold-500/30 group-hover:bg-gold-500'}`}>
+                    <motion.div
+                      animate={isHighlight ? { y: [0, -12, 0], rotate: [0, 10, 0] } : { y: [0, -8, 0] }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <Icon className={`text-3xl md:text-5xl ${isHighlight ? 'text-dark-900' : 'text-gold-500 group-hover:text-dark-900 transition-colors'}`} />
+                    </motion.div>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-serif text-white mb-2 md:mb-4">{course.title}</h3>
+                  <p className="text-gray-400 mb-6 md:mb-8 h-auto md:h-24 line-clamp-3">{course.description}</p>
+                  <Link to={`/courses`} className="text-gold-500 font-bold uppercase tracking-widest text-xs md:text-sm hover:text-white transition-colors">Learn More →</Link>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

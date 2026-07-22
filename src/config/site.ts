@@ -38,8 +38,8 @@ export const siteConfig = {
   ],
   courses: [
     {
-      id: "beginner",
-      title: "Beginner",
+      id: "foundation",
+      title: "Foundation",
       description: "Introduction to Chess fundamentals and building a strong foundation. We cover Board Basics, Pieces Movement, Basic Tactics, and Rules & Regulations.",
       duration: "3 Months",
       ageGroup: "5+ Years",
@@ -48,7 +48,17 @@ export const siteConfig = {
         { title: "01 Introduction to Chess", topics: ["What is Chess?", "History of Chess", "Chess Legends and World Champions", "Benefits of Learning Chess"] },
         { title: "02 The Chessboard", topics: ["Understanding the Chessboard", "Setting Up the Board Correctly", "Files, Ranks and Coordinates", "Naming Squares", "Diagonals", "Setting Up the Pieces", "Who Moves First?"] },
         { title: "03 The Pieces", topics: ["The Rook", "The Bishop", "The Queen", "The King", "The Knight", "The Pawn", "Piece Values"] },
-        { title: "04 Protecting Your Pieces", topics: ["Attacked or Safe?", "Move to Safety", "Protecting a Piece", "Capturing the Attacker", "Blocking the Attack", "Clearing the Way for Defenders", "Smart Defending and Smart Trades"] },
+        { title: "04 Protecting Your Pieces", topics: ["Attacked or Safe?", "Move to Safety", "Protecting a Piece", "Capturing the Attacker", "Blocking the Attack", "Clearing the Way for Defenders", "Smart Defending and Smart Trades"] }
+      ]
+    },
+    {
+      id: "beginner",
+      title: "Beginner",
+      description: "Building on the foundation with intermediate tactics, checkmate patterns, special moves, and basic strategies.",
+      duration: "3-6 Months",
+      ageGroup: "All Ages",
+      fees: "Contact for details",
+      chapters: [
         { title: "05 Check & Escaping Check", topics: ["Understanding Check", "Escaping Check by Moving the King", "Escaping Check by Capturing", "Escaping Check by Blocking", "Illegal King Moves", "Choosing the Best Escape"] },
         { title: "06 Understanding Checkmate", topics: ["Check vs Checkmate", "No Escape!", "Controlling Escape Squares", "Teamwork in Checkmate", "Trapped by Your Own Army", "Checkmate with Different Pieces", "Finding the Winning Move", "The End of the Game"] },
         { title: "07 Mate in One", topics: ["Finding Mate in One", "Mate in One with the Queen", "Mate in One with the Rook", "Mate in One with the Bishop", "Mate in One with the Knight", "Mate in One with the Pawn", "Choosing Mate, Not Just Check"] },
@@ -60,34 +70,24 @@ export const siteConfig = {
       ]
     },
     {
-      id: "intermediate-1",
-      title: "Intermediate Level 1",
-      description: "Transitioning from basics to tactical thinking and basic planning. Includes Advanced Tactics, Basic Openings, Simple Endgames, and Strategy Concepts.",
+      id: "intermediate",
+      title: "Intermediate",
+      description: "Transitioning to tactical thinking, basic planning, positional play, and complex endgames.",
       duration: "6 Months",
       ageGroup: "All Ages",
       fees: "Contact for details",
       chapters: [
         { title: "01 Advanced Tactics", topics: ["Pins", "Skewers", "Forks", "Discovered Attacks"] },
         { title: "02 Basic Openings", topics: ["Italian Game", "Ruy Lopez", "Sicilian Defense Basics"] },
-        { title: "03 Simple Endgames", topics: ["King and Pawn Endgames", "Opposition", "Rule of the Square"] }
-      ]
-    },
-    {
-      id: "intermediate-2",
-      title: "Intermediate Level 2",
-      description: "Deepening positional play, evaluating positions, and formulating plans. Focuses on Positional Understanding, Complex Openings, Middle Game Strategies, and Endgame Mastery.",
-      duration: "Ongoing",
-      ageGroup: "All Ages",
-      fees: "Contact for details",
-      chapters: [
-        { title: "01 Positional Play", topics: ["Outposts", "Weak Squares", "Pawn Structures", "Space Advantage"] },
-        { title: "02 Middle Game Planning", topics: ["Evaluating the Position", "Creating a Plan", "Prophylaxis"] },
-        { title: "03 Advanced Endgames", topics: ["Rook Endgames", "Lucena Position", "Philidor Position"] }
+        { title: "03 Simple Endgames", topics: ["King and Pawn Endgames", "Opposition", "Rule of the Square"] },
+        { title: "04 Positional Play", topics: ["Outposts", "Weak Squares", "Pawn Structures", "Space Advantage"] },
+        { title: "05 Middle Game Planning", topics: ["Evaluating the Position", "Creating a Plan", "Prophylaxis"] },
+        { title: "06 Advanced Endgames", topics: ["Rook Endgames", "Lucena Position", "Philidor Position"] }
       ]
     },
     {
       id: "advanced",
-      title: "Advanced Level",
+      title: "Advanced",
       description: "Refining skills for competitive play and high-level tournament performance. Covers Grandmaster Games Analysis, Advanced Calculation, Specialized Openings, and Tournament Preparation.",
       duration: "Ongoing",
       ageGroup: "Rated Players",
@@ -95,8 +95,8 @@ export const siteConfig = {
       chapters: []
     },
     {
-      id: "professional",
-      title: "Professional",
+      id: "master",
+      title: "Master",
       description: "Expert-level training for rated players aiming for mastery. Includes Tailored Coaching, Psychological Resilience, Deep Opening Preparation, and Complex Endgame Analysis.",
       duration: "Flexible",
       ageGroup: "Rated Players",
@@ -104,11 +104,11 @@ export const siteConfig = {
       chapters: []
     },
     {
-      id: "online",
-      title: "Online Classes",
-      description: "Learn from the comfort of your home via interactive 1-on-1 or group online sessions.",
-      duration: "Ongoing",
-      ageGroup: "All Ages",
+      id: "champion",
+      title: "Champion",
+      description: "Elite level coaching for national and international level champions. Customized intensive training with Grandmasters.",
+      duration: "Flexible",
+      ageGroup: "Professional Players",
       fees: "Contact for details",
       chapters: []
     }

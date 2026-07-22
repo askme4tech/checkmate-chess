@@ -31,11 +31,12 @@ export default function Courses() {
 
   const getIconForCourse = (id: string) => {
     switch (id) {
-      case 'beginner': return <FaChessPawn />;
-      case 'intermediate-1': return <FaChessKnight />;
-      case 'intermediate-2': return <FaChessBishop />;
+      case 'foundation': return <FaChessPawn />;
+      case 'beginner': return <FaChessKnight />;
+      case 'intermediate': return <FaChessBishop />;
       case 'advanced': return <FaChessRook />;
-      case 'professional': return <FaChessQueen />;
+      case 'master': return <FaChessQueen />;
+      case 'champion': return <FaChessKing />;
       default: return <FaChessKing />;
     }
   };
