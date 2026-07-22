@@ -99,13 +99,13 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, -10, 0] }} 
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 left-0 md:top-4 md:left-[-10px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-1.5 md:p-4 flex flex-col items-center z-20 min-w-[75px] md:min-w-[140px] cursor-pointer group"
+                className="absolute top-0 left-0 md:top-4 md:left-[-10px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-[9px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Laser Focus</span>
+                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Laser Focus</span>
                 <motion.div 
                   whileHover={{ scale: 1.3, rotate: [0, 15, -15, 0], transition: { duration: 0.3 } }}
                   whileTap={{ scale: 1.3, rotate: [0, 15, -15, 0] }}
-                  className="text-xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                  className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   🎯
                 </motion.div>
@@ -114,13 +114,13 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, 15, 0] }} 
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-6 left-[-10px] md:bottom-12 md:left-[-30px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-1.5 md:p-4 flex flex-col items-center z-20 min-w-[75px] md:min-w-[140px] cursor-pointer group"
+                className="absolute bottom-6 left-[-10px] md:bottom-12 md:left-[-30px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-[9px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Master Strategy</span>
+                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Master Strategy</span>
                 <motion.div 
                   whileHover={{ y: -15, x: 15, transition: { type: "spring", stiffness: 300 } }}
                   whileTap={{ y: -15, x: 15 }}
-                  className="text-xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                  className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   ♟️
                 </motion.div>
@@ -129,13 +129,13 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, -15, 0] }} 
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="absolute top-6 right-[-5px] md:top-12 md:right-[-20px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-1.5 md:p-4 flex flex-col items-center z-20 min-w-[75px] md:min-w-[140px] cursor-pointer group"
+                className="absolute top-6 right-[-5px] md:top-12 md:right-[-20px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-[9px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Mental<br className="hidden md:block"/>Agility</span>
+                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Mental Agility</span>
                 <motion.div 
                   whileHover={{ scale: [1, 1.2, 1], transition: { repeat: Infinity, duration: 0.6 } }}
                   whileTap={{ scale: [1, 1.2, 1], transition: { repeat: Infinity, duration: 0.6 } }}
-                  className="text-xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                  className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   🧠
                 </motion.div>
@@ -144,13 +144,13 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, 10, 0] }} 
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                className="absolute bottom-20 right-[-10px] md:bottom-28 md:right-[-40px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-1.5 md:p-4 flex flex-col items-center z-20 min-w-[75px] md:min-w-[140px] cursor-pointer group"
+                className="absolute bottom-20 right-[-10px] md:bottom-28 md:right-[-40px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-[9px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Tournament<br className="hidden md:block"/>Success</span>
+                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Tournament Success</span>
                 <motion.div 
                   whileHover={{ rotate: [0, -15, 15, -15, 15, 0], scale: 1.2, transition: { duration: 0.5 } }}
                   whileTap={{ rotate: [0, -15, 15, -15, 15, 0], scale: 1.2 }}
-                  className="text-xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                  className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   🏆
                 </motion.div>
@@ -159,27 +159,27 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, -8, 0] }} 
                 transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute bottom-[-15px] right-12 md:bottom-[-10px] md:right-24 bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-1.5 md:p-4 flex flex-col items-center z-20 min-w-[75px] md:min-w-[140px] cursor-pointer group"
+                className="absolute bottom-[-15px] right-12 md:bottom-[-10px] md:right-24 bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-[9px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Sportsmanship</span>
+                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-0.5 md:mb-2 text-center">Sportsmanship</span>
                 <motion.div 
                   whileHover={{ rotate: [0, 20, -20, 20, -20, 0], transition: { duration: 0.5 } }}
                   whileTap={{ rotate: [0, 20, -20, 20, -20, 0] }}
-                  className="text-xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                  className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   🤝
                 </motion.div>
               </motion.div>
 
               {/* Main Center Image - Seamlessly Blended */}
-              <div className="relative z-10 w-full h-[600px] flex items-center justify-center">
+              <div className="relative z-10 w-full h-full flex items-center justify-center pointer-events-none">
                 <img 
                   src="/images/custom-triumph.png" 
                   alt="Triumphant King" 
-                  className="w-[140%] h-[140%] max-w-none object-contain transition-all duration-1000 ease-in-out hover:scale-105 grayscale hover:grayscale-0 z-10 mix-blend-multiply"
+                  className="w-[120%] h-[120%] max-w-none object-cover sm:object-contain transition-all duration-1000 ease-in-out hover:scale-105 grayscale hover:grayscale-0 z-10 mix-blend-multiply"
                   style={{ 
-                    maskImage: 'radial-gradient(circle at center, black 40%, transparent 70%)', 
-                    WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 70%)' 
+                    maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)', 
+                    WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)' 
                   }}
                 />
               </div>
