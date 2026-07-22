@@ -108,7 +108,7 @@ export default function Home() {
                   <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gold-500 transition-all duration-300 md:group-hover:w-full"></span>
                 </span>
                 <motion.div 
-                  variants={{ hover: { scale: 1.4, rotate: [0, 15, -15, 0], transition: { duration: 0.4, repeat: Infinity } } }}
+                  variants={{ hover: { scale: [1, 0.8, 1.5, 1.4, 1.4, 1.4], rotate: [0, -15, 12, -8, 4, 0], y: [0, -5, 5, -2, 1, 0], transition: { duration: 0.6, times: [0, 0.1, 0.2, 0.35, 0.5, 1], ease: "easeOut" } } }}
                   className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   🎯
@@ -126,12 +126,32 @@ export default function Home() {
                   Master Strategy
                   <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gold-500 transition-all duration-300 md:group-hover:w-full"></span>
                 </span>
-                <motion.div 
-                  variants={{ hover: { y: [0, -15, 0], x: [0, 15, 0], transition: { duration: 0.8, repeat: Infinity } } }}
-                  className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-                >
-                  ♟️
-                </motion.div>
+                <div className="relative flex items-center justify-center w-full mt-1 md:mt-2 h-8 md:h-12">
+                  {/* Pawn */}
+                  <motion.div 
+                    initial={{ y: 0, opacity: 1, scale: 1 }}
+                    variants={{ hover: { y: -30, opacity: 0, scale: 0.5, transition: { duration: 0.3 } } }}
+                    className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] z-10 origin-bottom"
+                  >
+                    <FaChessPawn />
+                  </motion.div>
+                  {/* Queen */}
+                  <motion.div 
+                    initial={{ y: 30, opacity: 0, scale: 0.5 }}
+                    variants={{ hover: { y: 0, opacity: 1, scale: [0.5, 1.4, 1], transition: { duration: 0.5, delay: 0.1 } } }}
+                    className="absolute text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] z-10 origin-bottom"
+                  >
+                    <FaChessQueen />
+                  </motion.div>
+                  {/* Promotion Sparkles */}
+                  <motion.div 
+                    initial={{ scale: 0, opacity: 0 }}
+                    variants={{ hover: { scale: [0, 2, 0], opacity: [0, 1, 0], transition: { duration: 0.6, delay: 0.15 } } }}
+                    className="absolute text-xl md:text-3xl z-20"
+                  >
+                    ✨
+                  </motion.div>
+                </div>
               </motion.div>
 
               <motion.div 
@@ -145,12 +165,29 @@ export default function Home() {
                   Mental Agility
                   <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gold-500 transition-all duration-300 md:group-hover:w-full"></span>
                 </span>
-                <motion.div 
-                  variants={{ hover: { scale: [1, 1.3, 1], transition: { repeat: Infinity, duration: 0.6 } } }}
-                  className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-                >
-                  🧠
-                </motion.div>
+                <div className="relative flex items-center justify-center w-full mt-1 md:mt-2 h-8 md:h-12">
+                  {/* Brain */}
+                  <motion.div 
+                    variants={{ hover: { scale: [1, 1.15, 1], rotate: [0, -5, 5, -5, 0], transition: { duration: 0.5, repeat: Infinity } } }}
+                    className="text-2xl md:text-5xl drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] z-10"
+                  >
+                    🧠
+                  </motion.div>
+                  {/* Neural Spark Left */}
+                  <motion.div 
+                    variants={{ hover: { x: [0, -25], y: [0, -15], opacity: [0, 1, 0], scale: [0.5, 1.5, 0.5], transition: { duration: 0.6, repeat: Infinity } } }}
+                    className="absolute text-lg md:text-2xl z-0"
+                  >
+                    ⚡
+                  </motion.div>
+                  {/* Neural Spark Right */}
+                  <motion.div 
+                    variants={{ hover: { x: [0, 25], y: [0, -15], opacity: [0, 1, 0], scale: [0.5, 1.5, 0.5], transition: { duration: 0.6, delay: 0.3, repeat: Infinity } } }}
+                    className="absolute text-lg md:text-2xl z-0"
+                  >
+                    ⚡
+                  </motion.div>
+                </div>
               </motion.div>
 
               <motion.div 
@@ -164,12 +201,26 @@ export default function Home() {
                   Tournament Success
                   <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gold-500 transition-all duration-300 md:group-hover:w-full"></span>
                 </span>
-                <motion.div 
-                  variants={{ hover: { rotate: [0, -20, 20, -20, 20, 0], scale: 1.3, transition: { duration: 0.6, repeat: Infinity } } }}
-                  className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-                >
-                  🏆
-                </motion.div>
+                <div className="relative flex items-center justify-center">
+                  <motion.div 
+                    variants={{ hover: { scale: [1, 0.7, 1.6, 1.3], rotate: [0, -15, 15, -10, 0], transition: { duration: 0.6, times: [0, 0.1, 0.3, 1] } } }}
+                    className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] relative z-10"
+                  >
+                    🏆
+                  </motion.div>
+                  <motion.div 
+                    variants={{ hover: { scale: [0, 1.5, 1.2], x: [0, 30], y: [0, -30], opacity: [0, 1, 0], transition: { duration: 0.7 } } }}
+                    className="absolute text-xl md:text-3xl z-0"
+                  >
+                    🎉
+                  </motion.div>
+                  <motion.div 
+                    variants={{ hover: { scale: [0, 1.5, 1.2], x: [0, -30], y: [0, -20], opacity: [0, 1, 0], transition: { duration: 0.7, delay: 0.1 } } }}
+                    className="absolute text-xl md:text-3xl z-0"
+                  >
+                    ✨
+                  </motion.div>
+                </div>
               </motion.div>
 
               <motion.div 
@@ -183,12 +234,29 @@ export default function Home() {
                   Sportsmanship
                   <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gold-500 transition-all duration-300 md:group-hover:w-full"></span>
                 </span>
-                <motion.div 
-                  variants={{ hover: { y: [0, -10, 0, 10, 0], transition: { duration: 0.8, repeat: Infinity } } }}
-                  className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-                >
-                  🤝
-                </motion.div>
+                <div className="relative flex items-center justify-center w-full mt-1 md:mt-2">
+                  {/* Left Hand */}
+                  <motion.div 
+                    variants={{ hover: { x: [0, -15, 5, 0], rotate: [0, -5, 0, 0], scale: [1, 1.1, 1.3, 1.2], transition: { duration: 0.5, times: [0, 0.4, 0.7, 1] } } }}
+                    className="text-2xl md:text-4xl drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] z-10 origin-center"
+                  >
+                    🫸
+                  </motion.div>
+                  {/* Right Hand */}
+                  <motion.div 
+                    variants={{ hover: { x: [0, 15, -5, 0], rotate: [0, 5, 0, 0], scale: [1, 1.1, 1.3, 1.2], transition: { duration: 0.5, times: [0, 0.4, 0.7, 1] } } }}
+                    className="text-2xl md:text-4xl drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] z-10 origin-center"
+                  >
+                    🫷
+                  </motion.div>
+                  {/* Impact */}
+                  <motion.div 
+                    variants={{ hover: { scale: [0, 0, 1.5, 0], opacity: [0, 0, 1, 0], transition: { duration: 0.6, times: [0, 0.4, 0.7, 1] } } }}
+                    className="absolute text-xl md:text-3xl z-20"
+                  >
+                    ✨
+                  </motion.div>
+                </div>
               </motion.div>
 
               {/* Main Center Image - Seamlessly Blended */}
