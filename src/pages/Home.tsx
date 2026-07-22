@@ -93,19 +93,19 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="relative hidden lg:flex justify-center items-center h-[600px] mt-10 lg:mt-0 w-full"
+              className="relative flex justify-center items-center h-[350px] sm:h-[450px] lg:h-[600px] mt-12 lg:mt-0 w-full"
             >
               {/* Floating feature cards */}
               <motion.div 
                 animate={{ y: [0, -10, 0] }} 
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-4 left-[-10px] bg-transparent flex flex-col items-center z-20 min-w-[140px] cursor-pointer group"
+                className="absolute top-[5%] left-[2%] md:left-[-10px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-sm font-bold text-white/80 mb-2 text-center drop-shadow-md">Laser Focus</span>
+                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-1 md:mb-2 text-center">Laser Focus</span>
                 <motion.div 
                   whileHover={{ scale: 1.3, rotate: [0, 15, -15, 0], transition: { duration: 0.3 } }}
                   whileTap={{ scale: 1.3, rotate: [0, 15, -15, 0] }}
-                  className="text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                  className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   🎯
                 </motion.div>
@@ -114,13 +114,13 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, 15, 0] }} 
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-12 left-[-30px] bg-transparent flex flex-col items-center z-20 min-w-[140px] cursor-pointer group"
+                className="absolute bottom-[10%] left-[0%] md:left-[-30px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-sm font-bold text-white/80 mb-2 text-center drop-shadow-md">Master Strategy</span>
+                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-1 md:mb-2 text-center">Master Strategy</span>
                 <motion.div 
                   whileHover={{ y: -15, x: 15, transition: { type: "spring", stiffness: 300 } }}
                   whileTap={{ y: -15, x: 15 }}
-                  className="text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                  className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   ♟️
                 </motion.div>
@@ -129,13 +129,13 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, -15, 0] }} 
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="absolute top-12 right-[-20px] bg-transparent flex flex-col items-center z-20 min-w-[140px] cursor-pointer group"
+                className="absolute top-[15%] right-[2%] md:right-[-20px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-sm font-bold text-white/80 mb-2 text-center drop-shadow-md">Mental<br/>Agility</span>
+                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-1 md:mb-2 text-center">Mental<br className="hidden md:block"/>Agility</span>
                 <motion.div 
                   whileHover={{ scale: [1, 1.2, 1], transition: { repeat: Infinity, duration: 0.6 } }}
                   whileTap={{ scale: [1, 1.2, 1], transition: { repeat: Infinity, duration: 0.6 } }}
-                  className="text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                  className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   🧠
                 </motion.div>
@@ -144,13 +144,13 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, 10, 0] }} 
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                className="absolute bottom-28 right-[-40px] bg-transparent flex flex-col items-center z-20 min-w-[140px] cursor-pointer group"
+                className="absolute bottom-[25%] right-[0%] md:right-[-40px] bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-sm font-bold text-white/80 mb-2 text-center drop-shadow-md">Tournament<br/>Success</span>
+                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-1 md:mb-2 text-center">Tournament<br className="hidden md:block"/>Success</span>
                 <motion.div 
                   whileHover={{ rotate: [0, -15, 15, -15, 15, 0], scale: 1.2, transition: { duration: 0.5 } }}
                   whileTap={{ rotate: [0, -15, 15, -15, 15, 0], scale: 1.2 }}
-                  className="text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                  className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   🏆
                 </motion.div>
@@ -159,13 +159,13 @@ export default function Home() {
               <motion.div 
                 animate={{ y: [0, -8, 0] }} 
                 transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute bottom-[-10px] right-24 bg-transparent flex flex-col items-center z-20 min-w-[140px] cursor-pointer group"
+                className="absolute bottom-[2%] right-[10%] md:right-24 bg-dark-900 border border-gold-500/20 shadow-xl rounded-xl p-2 md:p-4 flex flex-col items-center z-20 min-w-[90px] md:min-w-[140px] cursor-pointer group"
               >
-                <span className="text-sm font-bold text-white/80 mb-2 text-center drop-shadow-md">Sportsmanship</span>
+                <span className="text-[10px] md:text-sm font-bold text-gray-800 md:text-white/80 mb-1 md:mb-2 text-center">Sportsmanship</span>
                 <motion.div 
                   whileHover={{ rotate: [0, 20, -20, 20, -20, 0], transition: { duration: 0.5 } }}
                   whileTap={{ rotate: [0, 20, -20, 20, -20, 0] }}
-                  className="text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                  className="text-2xl md:text-5xl text-gold-500 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
                   🤝
                 </motion.div>
