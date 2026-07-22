@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { siteConfig } from '../config/site';
 import PageTransition from '../components/PageTransition';
 import SEO from '../components/SEO';
-import { FaClock, FaUserGraduate, FaInfoCircle, FaChevronDown, FaBook, FaChessPawn, FaChessKnight, FaChessBishop, FaChessRook, FaChessQueen, FaChessKing } from 'react-icons/fa';
+import { FaClock, FaUserGraduate, FaChevronDown, FaBook, FaChessPawn, FaChessKnight, FaChessBishop, FaChessRook, FaChessQueen, FaChessKing } from 'react-icons/fa';
 
 export default function Courses() {
   const [activeCourseId, setActiveCourseId] = useState(siteConfig.courses[0].id);
