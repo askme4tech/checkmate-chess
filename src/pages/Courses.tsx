@@ -98,14 +98,21 @@ export default function Courses() {
             >
               {/* Left Column: Image & Meta */}
               <div className="lg:col-span-5 space-y-8">
-                <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-dark-900 group">
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent z-10" />
-                  <img 
-                    src="/course_book.png" 
-                    alt={`${activeCourse.title} Curriculum`} 
-                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute bottom-0 left-0 w-full p-8 z-20">
+                <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-dark-900 group min-h-[400px] flex flex-col justify-end">
+                  {/* Background gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-dark-800 to-dark-950 z-0" />
+                  
+                  {/* Giant Clip Art Icon */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700 z-10">
+                    <div className="text-[18rem] text-gold-500 drop-shadow-[0_0_50px_rgba(212,175,55,0.6)]">
+                      {getIconForCourse(activeCourse.id)}
+                    </div>
+                  </div>
+
+                  {/* Fade to text */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent z-20" />
+                  
+                  <div className="relative p-8 z-30">
                     <h2 className="text-3xl font-serif font-bold text-white mb-2">{activeCourse.title}</h2>
                     <p className="text-gray-300 text-sm">{activeCourse.description}</p>
                   </div>
