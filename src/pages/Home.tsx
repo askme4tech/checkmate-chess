@@ -146,7 +146,7 @@ export default function Home() {
                 <img 
                   src="/images/custom-triumph.png" 
                   alt="Triumphant King" 
-                  className="w-[140%] h-[140%] max-w-none object-contain transition-all duration-700 hover:scale-105 z-10 mix-blend-multiply"
+                  className="w-[140%] h-[140%] max-w-none object-contain transition-all duration-1000 ease-in-out hover:scale-105 grayscale hover:grayscale-0 z-10 mix-blend-multiply"
                   style={{ 
                     maskImage: 'radial-gradient(circle at center, black 40%, transparent 70%)', 
                     WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 70%)' 
