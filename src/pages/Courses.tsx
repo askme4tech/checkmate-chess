@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteConfig } from '../config/site';
@@ -41,6 +41,7 @@ export default function Courses() {
     }
   };
 
+
   return (
     <PageTransition>
       <SEO 
@@ -49,37 +50,44 @@ export default function Courses() {
         schema={courseSchema}
       />
       
-      <section className="py-20 bg-dark-800/30 text-center relative overflow-hidden">
+      <section className="pt-12 pb-8 bg-dark-800/30 text-center relative overflow-hidden">
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">Our Programs</h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-12">
-            Structured learning designed to take you from a beginner to an advanced tournament player.
+          <p className="text-gold-500 font-semibold tracking-widest uppercase text-sm mb-2">Our Programs</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4">Your Chess Journey</h1>
+          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 font-light">
+            From your first move to tournament mastery.
           </p>
           
           {/* Tabs Navigation */}
           <div 
-            className="flex overflow-x-auto pb-4 px-4 -mx-4 md:pb-0 md:mx-0 md:px-0 md:flex-wrap md:justify-center gap-3 mb-12 snap-x"
+            className="flex overflow-x-auto pb-4 px-4 -mx-4 md:pb-0 md:mx-0 md:px-0 md:flex-wrap md:justify-center items-center gap-2 md:gap-3 mb-8 snap-x"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' as any }}
           >
             {/* Inject minimal style for hiding scrollbar in webkit */}
             <style dangerouslySetInnerHTML={{__html: `
               .flex.overflow-x-auto::-webkit-scrollbar { display: none; }
             `}} />
-            {siteConfig.courses.map((course) => {
+            {siteConfig.courses.map((course, index) => {
               const isActive = activeCourseId === course.id;
               return (
-                <button
-                  key={course.id}
-                  onClick={() => setActiveCourseId(course.id)}
-                  className={`snap-center shrink-0 flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
-                    isActive 
-                      ? 'bg-gradient-to-r from-gold-600 to-gold-500 text-white shadow-[0_0_15px_rgba(212,175,55,0.4)] scale-105' 
-                      : 'bg-dark-800 text-gray-400 hover:text-white hover:bg-dark-700 border border-white/10'
-                  }`}
-                >
-                  {getIconForCourse(course.id)}
-                  {course.title}
-                </button>
+                <React.Fragment key={course.id}>
+                  <button
+                    onClick={() => setActiveCourseId(course.id)}
+                    className={`snap-center shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full text-sm transition-all duration-300 ${
+                      isActive 
+                        ? 'bg-gradient-to-r from-gold-600 to-gold-500 text-white shadow-[0_0_15px_rgba(212,175,55,0.4)] scale-105 font-bold border border-gold-400' 
+                        : 'bg-dark-800 text-gray-500 hover:text-gray-300 hover:bg-dark-700 border border-transparent hover:border-white/5 font-medium'
+                    }`}
+                  >
+                    {getIconForCourse(course.id)}
+                    {course.title}
+                  </button>
+                  {index < siteConfig.courses.length - 1 && (
+                    <div className="hidden md:block text-gray-500/50 shrink-0">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                    </div>
+                  )}
+                </React.Fragment>
               );
             })}
           </div>
@@ -96,32 +104,43 @@ export default function Courses() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"
+              className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start"
             >
               {/* Left Column: Image & Meta */}
-              <div className="lg:col-span-5 space-y-8">
-                <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-dark-900 group min-h-[300px] md:min-h-[400px] flex flex-col justify-end">
+              <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
+                <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-dark-900 group min-h-[250px] md:min-h-[350px] flex flex-col justify-end">
                   {/* Background gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-dark-800 to-dark-950 z-0" />
                   
                   {/* Giant Clip Art Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700 z-10">
-                    <div className="text-[12rem] md:text-[18rem] text-gold-500 drop-shadow-[0_0_50px_rgba(212,175,55,0.6)]">
+                  <div className="absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-60 transition-all duration-700 z-10 overflow-hidden">
+                    <motion.div 
+                      key={`giant-${activeCourse.id}`}
+                      initial={{ scale: 0.5, opacity: 0, rotate: -20 }}
+                      animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                      className="text-[10rem] md:text-[14rem] text-gold-500 drop-shadow-[0_0_50px_rgba(212,175,55,0.6)] animate-float"
+                    >
                       {getIconForCourse(activeCourse.id)}
-                    </div>
+                    </motion.div>
                   </div>
 
                   {/* Fade to text */}
                   <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent z-20" />
                   
-                  <div className="relative p-8 z-30">
+                  {/* Icon floating subtly */}
+                  <div className="absolute top-6 right-6 z-20 text-3xl md:text-4xl text-gold-500/80 drop-shadow-md">
+                    {getIconForCourse(activeCourse.id)}
+                  </div>
+                  
+                  <div className="relative p-6 md:p-8 z-30">
                     <h2 className="text-3xl font-serif font-bold text-white mb-2">{activeCourse.title}</h2>
                     <p className="text-gray-300 text-sm">{activeCourse.description}</p>
                   </div>
                 </div>
 
                 {/* Course Meta Info */}
-                <div className="glass-card p-6 border border-white/5 bg-dark-800/50 rounded-xl flex justify-around items-center">
+                <div className="glass-card p-5 border border-white/5 bg-dark-800/50 rounded-xl flex justify-around items-center">
                   <div className="text-center">
                     <FaClock className="text-gold-500 text-2xl mx-auto mb-2" />
                     <p className="text-xs text-gray-400 uppercase tracking-wider">Duration</p>
@@ -142,10 +161,10 @@ export default function Courses() {
 
               {/* Right Column: Curriculum Accordion */}
               <div className="lg:col-span-7">
-                <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
+                <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
                   <div>
-                    <h2 className="text-3xl font-serif font-bold text-white">Curriculum</h2>
-                    <p className="text-gray-400">View all the Sub-topics</p>
+                    <h2 className="text-2xl md:text-3xl font-serif font-bold text-white">Curriculum</h2>
+                    <p className="text-sm text-gray-400 mt-1">View all the topics</p>
                   </div>
                   <div className="px-4 py-1.5 rounded-full bg-gold-900/30 text-gold-500 text-sm font-medium border border-gold-500/20">
                     {activeCourse.chapters?.length || 0} Chapters
@@ -159,11 +178,7 @@ export default function Courses() {
                     <p className="text-gray-500">The detailed curriculum for this level is currently being updated. Please check back soon or contact us for details.</p>
                   </div>
                 ) : (
-                  <div className="space-y-4">
-                    {activeCourse.chapters.map((chapter, index) => (
-                      <ChapterAccordion key={index} chapter={chapter} index={index} />
-                    ))}
-                  </div>
+                  <ChapterList chapters={activeCourse.chapters} />
                 )}
               </div>
             </motion.div>
@@ -174,25 +189,41 @@ export default function Courses() {
   );
 }
 
-function ChapterAccordion({ chapter, index }: { chapter: any, index: number }) {
-  const [isOpen, setIsOpen] = useState(false);
+function ChapterList({ chapters }: { chapters: any[] }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  return (
+    <div className="space-y-3">
+      {chapters.map((chapter, index) => (
+        <ChapterAccordion 
+          key={index} 
+          chapter={chapter} 
+          index={index} 
+          isOpen={openIndex === index}
+          onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+        />
+      ))}
+    </div>
+  );
+}
+
+function ChapterAccordion({ chapter, index, isOpen, onToggle }: { chapter: any, index: number, isOpen: boolean, onToggle: () => void }) {
   // Extract chapter number from title (e.g., "01 Introduction" -> "01", "Introduction")
   const match = chapter.title.match(/^(\d+)\s*(.*)/);
   const chapterNumber = match ? match[1] : (index + 1).toString().padStart(2, '0');
   const chapterTitle = match ? match[2] : chapter.title;
 
   return (
-    <div className="border border-white/5 rounded-xl bg-dark-900 overflow-hidden shadow-lg transition-all duration-300 hover:border-gold-500/30">
+    <div className="border border-white/5 rounded-xl bg-dark-900 overflow-hidden shadow-sm transition-all duration-300 hover:border-gold-500/30">
       <button 
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-4 md:p-5 text-left bg-dark-800/50 hover:bg-dark-800 transition-colors"
+        onClick={onToggle}
+        className="w-full flex items-center justify-between p-3 md:p-4 text-left bg-dark-800/50 hover:bg-dark-800 transition-colors"
       >
-        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded bg-gradient-to-br from-gold-600 to-gold-800 flex items-center justify-center font-bold text-white shadow-inner">
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className="w-8 h-8 md:w-9 md:h-9 shrink-0 rounded bg-gradient-to-br from-gold-600 to-gold-800 flex items-center justify-center font-bold text-white shadow-inner text-sm">
             {chapterNumber}
           </div>
-          <span className="text-lg font-medium text-white group-hover:text-gold-400 transition-colors">
+          <span className="text-base md:text-lg font-serif font-semibold text-white group-hover:text-gold-400 transition-colors">
             {chapterTitle}
           </span>
         </div>
@@ -212,11 +243,11 @@ function ChapterAccordion({ chapter, index }: { chapter: any, index: number }) {
             exit={{ height: 0, opacity: 0 }}
             className="overflow-hidden bg-dark-900/50"
           >
-            <ul className="p-5 md:pl-[4.5rem] space-y-3">
+            <ul className="p-4 md:pl-14 space-y-2">
               {chapter.topics.map((topic: string, topIndex: number) => (
-                <li key={topIndex} className="flex items-start gap-3 text-gray-300">
-                  <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold-500 shrink-0 shadow-[0_0_5px_rgba(212,175,55,0.8)]" />
-                  <span>{topic}</span>
+                <li key={topIndex} className="flex items-start gap-3 text-gray-300 text-sm">
+                  <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold-500/70 shrink-0" />
+                  <span className="leading-relaxed font-light">{topic}</span>
                 </li>
               ))}
             </ul>

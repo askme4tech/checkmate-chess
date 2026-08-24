@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
@@ -18,11 +18,37 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hasHoveredLogo, setHasHoveredLogo] = useState(false);
 
+  const [isDark, setIsDark] = useState(false);
+
   useEffect(() => {
+    // Check initial theme from localStorage or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      setIsDark(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDark(false);
+      document.documentElement.classList.remove('dark');
+    }
+
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleTheme = () => {
+    if (isDark) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      setIsDark(false);
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      setIsDark(true);
+    }
+  };
 
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'glass' : 'bg-transparent'}`}>
@@ -75,16 +101,36 @@ export default function Navbar() {
             <a href="https://checkmate-1zt6.onrender.com/" target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-wider transition-colors duration-300 bg-gold-500/10 text-gold-500 hover:bg-gold-500 hover:text-white px-4 py-2 border border-gold-500/50 rounded-sm ml-2">
               Portal
             </a>
+
+            {/* Theme Toggle */}
+            <button 
+              onClick={toggleTheme}
+              className="ml-2 p-2 rounded-full text-gray-300 hover:text-gold-400 hover:bg-white/5 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {isDark ? <FiSun className="text-lg" /> : <FiMoon className="text-lg" />}
+            </button>
           </nav>
 
-          {/* Mobile Toggle */}
-          <button 
-            className="md:hidden text-2xl text-gold-500 p-2"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle Menu"
-          >
-            {isOpen ? <FiX /> : <FiMenu />}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            {/* Mobile Theme Toggle */}
+            <button 
+              onClick={toggleTheme}
+              className="p-2 rounded-full text-gray-300 hover:text-gold-400 hover:bg-white/5 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {isDark ? <FiSun className="text-xl" /> : <FiMoon className="text-xl" />}
+            </button>
+            
+            {/* Mobile Menu Toggle */}
+            <button 
+              className="text-2xl text-gold-500 p-2"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle Menu"
+            >
+              {isOpen ? <FiX /> : <FiMenu />}
+            </button>
+          </div>
         </div>
       </div>
 
