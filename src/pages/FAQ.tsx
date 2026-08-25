@@ -46,7 +46,12 @@ export default function FAQ() {
 
   return (
     <PageTransition>
-      <SEO title="FAQ" description="Frequently asked questions about our chess classes." schema={faqSchema} />
+      <SEO 
+        title="FAQ | Checkmate Chess Academy Coimbatore" 
+        description="Find answers to frequently asked questions about our chess classes, admissions, and schedules at Checkmate School of Chess." 
+        schema={faqSchema} 
+        path="/faq" 
+      />
       
       <section className="py-20 bg-dark-800/30 text-center">
         <div className="container mx-auto px-4 md:px-6">

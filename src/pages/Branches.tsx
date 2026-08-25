@@ -7,7 +7,11 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaClock, FaDirections } from 'react-icons/f
 export default function Branches() {
   return (
     <PageTransition>
-      <SEO title="Our Branches" description="Find a CHECK MATE School of Chess branch near you." />
+      <SEO 
+        title="Our Branches | Saibaba Colony & Peelamedu | Coimbatore" 
+        description="Find a CHECK MATE School of Chess branch near you in Coimbatore. We have branches in Saibaba Colony (K.K. Pudur) and Peelamedu." 
+        path="/branches" 
+      />
       
       <section className="py-20 bg-dark-800/30 text-center">
         <div className="container mx-auto px-4 md:px-6">

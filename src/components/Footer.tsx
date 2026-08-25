@@ -64,7 +64,7 @@ export default function Footer() {
               <span className="absolute -bottom-2 left-0 w-1/2 h-0.5 bg-gold-500"></span>
             </h3>
             <ul className="space-y-3">
-              {siteConfig.courses.slice(0, 4).map((course) => (
+              {siteConfig.courses.map((course) => (
                 <li key={course.id}>
                   <Link to="/courses" className="text-gray-400 hover:text-gold-400 transition-colors text-sm flex items-center gap-2">
                     <span className="text-gold-500 text-xs">▹</span> {course.title}

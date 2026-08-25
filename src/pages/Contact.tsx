@@ -1,13 +1,20 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { siteConfig } from '../config/site';
 import PageTransition from '../components/PageTransition';
 import SEO from '../components/SEO';
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaClipboardList, FaExclamationTriangle } from 'react-icons/fa';
+import ContactForm from '../components/ContactForm';
 
 export default function Contact() {
+  const [activeTab, setActiveTab] = useState<'enquiry' | 'issues'>('enquiry');
   return (
     <PageTransition>
-      <SEO title="Contact Us" description="Get in touch with CHECK MATE School of Chess for admissions and inquiries." />
+      <SEO 
+        title="Contact Us | Checkmate School of Chess | Admissions & Inquiries" 
+        description="Get in touch with CHECK MATE School of Chess for admissions, inquiries, and online chess class details." 
+        path="/contact" 
+      />
       
       <section className="py-20 bg-dark-800/30 text-center">
         <div className="container mx-auto px-4 md:px-6">
@@ -35,15 +42,18 @@ export default function Contact() {
                 </h2>
                 
                 <div className="space-y-8">
-                  <div className="flex items-start gap-6">
-                    <div className="w-14 h-14 rounded-full glass flex items-center justify-center text-gold-500 text-xl shrink-0">
-                      <FaMapMarkerAlt />
+                  {siteConfig.branches.map(branch => (
+                    <div key={branch.id} className="flex items-start gap-6">
+                      <div className="w-14 h-14 rounded-full glass flex items-center justify-center text-gold-500 text-xl shrink-0">
+                        <FaMapMarkerAlt />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-serif text-white mb-2">{branch.name}</h3>
+                        <p className="text-gray-400 leading-relaxed whitespace-pre-line mb-2">{branch.address}</p>
+                        <a href={branch.googleMapsUrl} target="_blank" rel="noreferrer" className="text-gold-500 text-sm hover:underline">Get Directions &rarr;</a>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-serif text-white mb-2">Head Office</h3>
-                      <p className="text-gray-400 leading-relaxed whitespace-pre-line">{siteConfig.contact.address}</p>
-                    </div>
-                  </div>
+                  ))}
                   
                   <div className="flex items-start gap-6">
                     <div className="w-14 h-14 rounded-full glass flex items-center justify-center text-gold-500 text-xl shrink-0">
@@ -82,30 +92,30 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* Google Form Embed */}
+            {/* Form Tabs */}
             <motion.div 
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              className="glass-card p-2 rounded-2xl overflow-hidden h-[600px] relative"
+              className="flex flex-col h-full"
             >
-              {siteConfig.integrations.googleFormEmbedUrl !== "#" ? (
-                <iframe 
-                  src={siteConfig.integrations.googleFormEmbedUrl} 
-                  width="100%" 
-                  height="100%" 
-                  frameBorder="0" 
-                  marginHeight={0} 
-                  marginWidth={0}
-                  className="bg-white rounded-xl"
-                  title="Enquiry Form"
+              <div className="flex gap-2 mb-4 bg-dark-900/50 p-1 rounded-xl">
+                <button 
+                  onClick={() => setActiveTab('enquiry')}
+                  className={`flex-1 py-3 px-4 rounded-lg flex items-center justify-center gap-2 font-serif transition-colors ${activeTab === 'enquiry' ? 'bg-gold-500 text-dark-900 font-bold' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
                 >
-                  Loading…
-                </iframe>
-              ) : (
-                <div className="w-full h-full flex items-center justify-center bg-white/5 rounded-xl text-gray-400 text-center p-8">
-                  Please add your Google Form embed URL to the configuration file to display the enquiry form here.
-                </div>
-              )}
+                  <FaClipboardList /> General Enquiry
+                </button>
+                <button 
+                  onClick={() => setActiveTab('issues')}
+                  className={`flex-1 py-3 px-4 rounded-lg flex items-center justify-center gap-2 font-serif transition-colors ${activeTab === 'issues' ? 'bg-gold-500 text-dark-900 font-bold' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+                >
+                  <FaExclamationTriangle /> Class Issues
+                </button>
+              </div>
+
+              <div className="glass-card p-2 md:p-6 rounded-2xl flex-grow min-h-[600px]">
+                <ContactForm defaultType={activeTab === 'enquiry' ? 'General Enquiry' : 'Class Issue'} />
+              </div>
             </motion.div>
             
           </div>

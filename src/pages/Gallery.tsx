@@ -24,7 +24,11 @@ export default function Gallery() {
 
   return (
     <PageTransition>
-      <SEO title="Gallery" description="View images from our classes, tournaments, and events." />
+      <SEO 
+        title="Photo Gallery | Checkmate Chess Academy Coimbatore" 
+        description="View images from our classes, tournaments, and events at Checkmate School of Chess." 
+        path="/gallery" 
+      />
       
       <section className="py-20 bg-dark-800/30 text-center">
         <div className="container mx-auto px-4 md:px-6">

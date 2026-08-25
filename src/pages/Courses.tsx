@@ -45,9 +45,10 @@ export default function Courses() {
   return (
     <PageTransition>
       <SEO 
-        title="Chess Programs & Curriculum" 
-        description="Explore our highly structured chess programs for all levels. From Foundation to Champion, master the game with Checkmate Chess Academy."
+        title="Chess Courses | Beginner to Master | Coimbatore" 
+        description="Explore our highly structured chess programs for all levels. From Foundation to Champion, master the game with Checkmate Chess Academy in Coimbatore."
         schema={courseSchema}
+        path="/courses"
       />
       
       <section className="pt-12 pb-8 bg-dark-800/30 text-center relative overflow-hidden">

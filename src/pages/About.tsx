@@ -6,7 +6,11 @@ import SEO from '../components/SEO';
 export default function About() {
   return (
     <PageTransition>
-      <SEO title="About Us" description="Learn about the mission, vision, and benefits of joining CHECK MATE School of Chess." />
+      <SEO 
+        title="About Us | Checkmate Chess Academy Coimbatore" 
+        description="Learn about the mission, vision, and benefits of joining CHECK MATE School of Chess in Coimbatore. Shaping minds and building champions."
+        path="/about"
+      />
       
       {/* Header */}
       <section className="py-20 bg-dark-800/30">

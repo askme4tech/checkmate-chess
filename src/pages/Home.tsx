@@ -32,20 +32,46 @@ export default function Home() {
   return (
     <PageTransition>
       <SEO 
+        path="/"
         schema={{
           "@context": "https://schema.org",
-          "@type": "EducationalOrganization",
-          "name": siteConfig.academyName,
-          "description": siteConfig.seo.defaultDescription,
-          "url": siteConfig.seo.url,
-          "telephone": siteConfig.contact.phones[0],
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "80, Maniyam Vellpan Street, K.K. Pudur",
-            "addressLocality": "Coimbatore",
-            "postalCode": "641038",
-            "addressCountry": "IN"
-          }
+          "@graph": [
+            {
+              "@type": "EducationalOrganization",
+              "name": siteConfig.academyName,
+              "description": siteConfig.seo.defaultDescription,
+              "url": siteConfig.seo.url,
+              "logo": `${siteConfig.seo.url}/logo-transparent.png`
+            },
+            {
+              "@type": "LocalBusiness",
+              "name": "CHECK MATE School of Chess - Saibaba Colony",
+              "image": "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "80, Maniyam Vellpan Street, K.K. Pudur",
+                "addressLocality": "Coimbatore",
+                "postalCode": "641038",
+                "addressCountry": "IN"
+              },
+              "telephone": "+91 96776 21073",
+              "url": "https://checkmatecbe.com/"
+            },
+            {
+              "@type": "LocalBusiness",
+              "name": "CHECK MATE School of Chess - Peelamedu",
+              "image": "https://checkmatecbe.com/images/peelamedu.jpg",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "24-42, Avarampalayam Road, Peelamedu",
+                "addressLocality": "Coimbatore",
+                "postalCode": "641004",
+                "addressCountry": "IN"
+              },
+              "telephone": "+91 88704 06066",
+              "url": "https://checkmatecbe.com/branches"
+            }
+          ]
         }}
       />
       
@@ -264,11 +290,7 @@ export default function Home() {
                 <img 
                   src="/images/custom-triumph.png" 
                   alt="Triumphant King" 
-                  className="w-[120%] h-[120%] max-w-none object-cover sm:object-contain transition-all duration-1000 ease-in-out md:group-hover/hero:scale-105 grayscale-0 md:grayscale md:group-hover/hero:grayscale-0 z-10 mix-blend-multiply"
-                  style={{ 
-                    maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)', 
-                    WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)' 
-                  }}
+                  className="w-[120%] h-[120%] max-w-none object-cover sm:object-contain transition-transform duration-1000 ease-in-out md:group-hover/hero:scale-105 z-10"
                 />
               </div>
             </motion.div>
@@ -370,26 +392,8 @@ export default function Home() {
               <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {[
-              { text: "Since joining Checkmate, my son's focus and academic performance have skyrocketed. The coaches are phenomenal with kids!", author: "Priya M.", role: "Parent of 8yo" },
-              { text: "The internal tournaments give them the perfect competitive edge. My daughter just got her first FIDE rating thanks to this academy.", author: "Rajesh K.", role: "Parent of 12yo" },
-              { text: "Best chess academy. The structured curriculum and gamified approach makes learning complex tactics fun for children.", author: "Ananya S.", role: "Parent of 10yo" }
-            ].map((review, i) => (
-              <div key={i} className="glass-card p-6 md:p-8 relative">
-                <div className="text-3xl md:text-4xl text-gold-500/20 absolute top-4 right-6 font-serif">"</div>
-                <p className="text-gray-300 italic mb-4 md:mb-6 relative z-10 text-sm md:text-base">"{review.text}"</p>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-dark-900 border border-gold-500/50 flex items-center justify-center font-bold text-gold-500">
-                    {review.author[0]}
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold text-sm">{review.author}</h4>
-                    <p className="text-gold-500 text-xs">{review.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="flex justify-center w-full">
+            <div className="elfsight-app-85f87338-e1a4-47b3-8bf8-37dfcc1f01e5" data-elfsight-app-lazy></div>
           </div>
         </div>
       </section>

@@ -9,31 +9,42 @@ export const siteConfig = {
   },
   social: {
     facebook: "#",
-    instagram: "#",
+    instagram: "https://www.instagram.com/checkmateschoolofchess/",
     twitter: "#",
     youtube: "#",
   },
   integrations: {
     googlePhotosAlbumUrl: "#", // Add your Google Photos shared album URL here
     youtubeChannelUrl: "#", // Add your YouTube Channel URL here
-    googleFormEmbedUrl: "https://docs.google.com/forms/d/e/1FAIpQLSd_example_form/viewform?embedded=true", // Example placeholder
+    googleSheetsApiUrl: "#", // Add your Google Apps Script Web App URL here
+    googleFormEmbedUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeDKjYGB-Z3O6MD_jC_O-RIx2qSinEjY5bbQQBJR0OD5khj0Q/viewform?embedded=true", 
+    classIssuesFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeDKjYGB-Z3O6MD_jC_O-RIx2qSinEjY5bbQQBJR0OD5khj0Q/viewform?embedded=true", // Placeholder, change later
     googleBusinessReviewEmbed: "#", // URL or iframe for Google Reviews
   },
   seo: {
     defaultTitle: "CHECK MATE School of Chess | Beginners to Advance Level",
     defaultDescription: "Join CHECK MATE School of Chess in Coimbatore. We offer regular, weekend, and online chess classes for beginners to advanced players.",
-    keywords: "chess academy, chess classes, coimbatore chess, online chess classes, learn chess, CHECK MATE school of chess",
-    url: "https://checkmatechess.com", // Replace with actual domain or GH pages URL
+    keywords: "chess academy, chess classes, coimbatore chess, online chess classes, learn chess, CHECK MATE school of chess, checkmatecbe, checkmate cbe",
+    url: "https://checkmatecbe.com",
   },
   branches: [
     {
-      id: "main-branch",
-      name: "Main Branch",
+      id: "saibaba-colony",
+      name: "Saibaba Colony Branch",
       address: "80, Maniyam Vellpan Street, K.K. Pudur, Coimbatore – 641038",
-      googleMapsUrl: "https://maps.app.goo.gl/placeholder", // Replace with real maps URL
+      googleMapsUrl: "https://maps.app.goo.gl/BV4Mr2mjaeSmEt627", 
       phone: "+91 96776 21073",
       timings: "Mon-Sat: 4:00 PM - 8:00 PM",
-      image: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/images/saibabacolony.png"
+    },
+    {
+      id: "peelamedu",
+      name: "Peelamedu Branch",
+      address: "24-42, Avarampalayam Road, Peelamedu, Coimbatore - 641004",
+      googleMapsUrl: "https://maps.app.goo.gl/bpvsTyVkcAa7njaaA", 
+      phone: "+91 88704 06066",
+      timings: "Mon-Sat: 4:00 PM - 8:00 PM",
+      image: "/images/peelamedu.jpg"
     }
   ],
   courses: [
