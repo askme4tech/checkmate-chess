@@ -85,7 +85,7 @@ export default function ChatbotWidget() {
             style={{ width: 'min(calc(100vw - 2rem), 380px)', height: 'min(calc(100vh - 8rem), 550px)' }}
           >
             {/* Header */}
-            <div className="bg-[#e65c00] text-white p-4 flex justify-between items-center relative shadow-md z-10">
+            <div className="bg-gold-500 text-white p-4 flex justify-between items-center relative shadow-md z-10">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                   <FaRobot className="text-xl" />
@@ -105,7 +105,7 @@ export default function ChatbotWidget() {
             </div>
 
             {/* Quick Options Scroll */}
-            <div className="bg-[#cc5200] p-3 flex gap-2 overflow-x-auto custom-scrollbar shadow-inner z-0">
+            <div className="bg-gold-600 p-3 flex gap-2 overflow-x-auto custom-scrollbar shadow-inner z-0">
               {Object.keys(FAQ_RESPONSES).map(option => (
                 <button
                   key={option}
@@ -127,7 +127,7 @@ export default function ChatbotWidget() {
                   <div 
                     className={`px-4 py-3 rounded-2xl ${
                       msg.sender === 'user' 
-                        ? 'bg-[#e65c00] text-white rounded-tr-sm' 
+                        ? 'bg-gold-500 text-white rounded-tr-sm' 
                         : 'bg-[#2a2a2a] text-gray-200 rounded-tl-sm border border-gray-700'
                     }`}
                   >
@@ -146,11 +146,11 @@ export default function ChatbotWidget() {
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
                   placeholder="Ask a question..."
-                  className="w-full bg-[#2a2a2a] text-white placeholder-gray-500 rounded-full py-3 pl-4 pr-12 focus:outline-none focus:ring-1 focus:ring-[#e65c00] border border-gray-700"
+                  className="w-full bg-[#2a2a2a] text-white placeholder-gray-500 rounded-full py-3 pl-4 pr-12 focus:outline-none focus:ring-1 focus:ring-gold-500 border border-gray-700"
                 />
                 <button 
                   type="submit"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-[#e65c00] hover:bg-[#cc5200] text-white rounded-full flex items-center justify-center transition-colors"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-gold-500 hover:bg-gold-600 text-white rounded-full flex items-center justify-center transition-colors"
                   disabled={!inputText.trim()}
                 >
                   <FaPaperPlane className="text-sm mr-0.5" />
@@ -167,7 +167,7 @@ export default function ChatbotWidget() {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-[#e65c00] text-white p-3 md:p-4 rounded-full shadow-[0_4px_12px_rgba(230,92,0,0.4)] hover:shadow-[0_6px_16px_rgba(230,92,0,0.6)] transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+        className="bg-gold-500 text-white p-3 md:p-4 rounded-full shadow-lg shadow-gold-500/40 hover:shadow-gold-500/60 transition-all duration-300 hover:scale-110 flex items-center justify-center group"
         aria-label="Open Chatbot"
       >
         {isOpen ? <FaTimes className="text-2xl" /> : <FaRobot className="text-2xl" />}
