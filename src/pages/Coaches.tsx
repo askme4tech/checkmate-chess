@@ -1,7 +1,5 @@
-import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 import SEO from '../components/SEO';
-import { FaUserCircle } from 'react-icons/fa';
 
 export default function Coaches() {
   // Coach profiles are coming soon

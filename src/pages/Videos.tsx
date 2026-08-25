@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { siteConfig } from '../config/site';
 import PageTransition from '../components/PageTransition';
 import SEO from '../components/SEO';
