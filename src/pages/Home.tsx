@@ -286,11 +286,16 @@ export default function Home() {
               </motion.div>
 
               {/* Main Center Image - Seamlessly Blended */}
+              <div className="absolute inset-0 bg-white/5 dark:bg-gold-500/5 blur-[80px] rounded-full"></div>
               <div className="relative z-10 w-full h-full flex items-center justify-center pointer-events-auto">
                 <img 
                   src="/images/custom-triumph.png" 
                   alt="Triumphant King" 
-                  className="w-[120%] h-[120%] max-w-none object-cover sm:object-contain transition-transform duration-1000 ease-in-out md:group-hover/hero:scale-105 z-10"
+                  className="w-[120%] h-[120%] max-w-none object-cover sm:object-contain transition-all duration-1000 ease-in-out md:group-hover/hero:scale-105 grayscale-0 md:grayscale md:group-hover/hero:grayscale-0 z-10 mix-blend-multiply dark:mix-blend-normal opacity-90 dark:opacity-80"
+                  style={{ 
+                    maskImage: 'radial-gradient(circle, black 25%, transparent 65%)', 
+                    WebkitMaskImage: 'radial-gradient(circle, black 25%, transparent 65%)' 
+                  }}
                 />
               </div>
             </motion.div>
