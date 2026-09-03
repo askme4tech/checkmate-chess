@@ -98,7 +98,7 @@ export default function Navbar() {
               </div>
             </div>
 
-            <a href="https://checkmate-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-wider transition-colors duration-300 bg-gold-500/10 text-gold-500 hover:bg-gold-500 hover:text-white px-4 py-2 border border-gold-500/50 rounded-sm ml-2">
+            <a href="https://checkmate-beryl.vercel.app/login" target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-wider transition-colors duration-300 bg-gold-500/10 text-gold-500 hover:bg-gold-500 hover:text-white px-4 py-2 border border-gold-500/50 rounded-sm ml-2">
               Portal
             </a>
 
@@ -156,7 +156,7 @@ export default function Navbar() {
                   {link.name}
                 </NavLink>
               ))}
-              <a href="https://checkmate-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="px-6 py-4 text-sm uppercase tracking-wider transition-colors duration-300 text-gold-500 hover:bg-white/5 hover:text-gold-400 font-semibold border-t border-white/5 mt-2">
+              <a href="https://checkmate-beryl.vercel.app/login" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="px-6 py-4 text-sm uppercase tracking-wider transition-colors duration-300 text-gold-500 hover:bg-white/5 hover:text-gold-400 font-semibold border-t border-white/5 mt-2">
                 Portal
               </a>
             </nav>
