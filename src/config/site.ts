@@ -32,7 +32,7 @@ export const siteConfig = {
       id: "saibaba-colony",
       name: "Saibaba Colony Branch",
       address: "80, Maniyam Vellpan Street, K.K. Pudur, Coimbatore – 641038",
-      googleMapsUrl: "https://maps.app.goo.gl/BV4Mr2mjaeSmEt627", 
+      googleMapsUrl: "https://maps.app.goo.gl/YYw89ucbQTbKdm1V6", 
       phone: "+91 96776 21073",
       timings: "Mon-Sat: 4:00 PM - 8:00 PM",
       image: "/images/saibabacolony.png"
@@ -41,7 +41,7 @@ export const siteConfig = {
       id: "peelamedu",
       name: "Peelamedu Branch",
       address: "24-42, Avarampalayam Road, Peelamedu, Coimbatore - 641004",
-      googleMapsUrl: "https://maps.app.goo.gl/bpvsTyVkcAa7njaaA", 
+      googleMapsUrl: "https://maps.app.goo.gl/ndvqr2mLcSs6Yudr8", 
       phone: "+91 88704 06066",
       timings: "Mon-Sat: 4:00 PM - 8:00 PM",
       image: "/images/peelamedu.jpg"

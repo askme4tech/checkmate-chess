@@ -41,7 +41,13 @@ export default function Home() {
               "name": siteConfig.academyName,
               "description": siteConfig.seo.defaultDescription,
               "url": siteConfig.seo.url,
-              "logo": `${siteConfig.seo.url}/logo-transparent.png`
+              "logo": `${siteConfig.seo.url}/logo-transparent.png`,
+              "sameAs": [
+                siteConfig.social.instagram,
+                siteConfig.social.facebook,
+                siteConfig.social.youtube,
+                siteConfig.social.twitter
+              ].filter(url => url !== "#")
             },
             {
               "@type": "LocalBusiness",
@@ -397,9 +403,18 @@ export default function Home() {
               <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
             </div>
           </div>
-          <div className="flex justify-center w-full">
-            <div className="elfsight-app-85f87338-e1a4-47b3-8bf8-37dfcc1f01e5" data-elfsight-app-lazy></div>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex justify-center w-full relative"
+          >
+            {/* Elegant glowing effect behind the widget */}
+            <div className="absolute inset-0 bg-gold-500/5 blur-3xl -z-10 rounded-[3rem]"></div>
+            
+            <div className="elfsight-app-85f87338-e1a4-47b3-8bf8-37dfcc1f01e5 w-full max-w-6xl relative z-10" data-elfsight-app-lazy></div>
+          </motion.div>
         </div>
       </section>
 

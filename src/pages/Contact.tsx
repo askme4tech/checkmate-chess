@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { siteConfig } from '../config/site';
 import PageTransition from '../components/PageTransition';
@@ -86,9 +87,9 @@ export default function Contact() {
                 <a href={`https://wa.me/${siteConfig.contact.whatsapp}`} target="_blank" rel="noreferrer" className="btn-primary flex items-center gap-2">
                   <FaWhatsapp className="text-xl" /> WhatsApp Us
                 </a>
-                <a href={siteConfig.branches[0]?.googleMapsUrl || '#'} target="_blank" rel="noreferrer" className="btn-secondary flex items-center gap-2">
-                  <FaMapMarkerAlt /> Get Directions
-                </a>
+                <Link to="/branches" className="btn-secondary flex items-center gap-2">
+                  <FaMapMarkerAlt /> View All Branches
+                </Link>
               </div>
             </motion.div>
 

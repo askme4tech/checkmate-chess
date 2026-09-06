@@ -81,10 +81,18 @@ export default function Footer() {
               <span className="absolute -bottom-2 left-0 w-1/2 h-0.5 bg-gold-500"></span>
             </h3>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <FaMapMarkerAlt className="text-gold-500 mt-1 shrink-0" />
-                <span className="text-gray-400 text-sm leading-relaxed whitespace-pre-line">{siteConfig.contact.address}</span>
-              </li>
+              {siteConfig.branches.map(branch => (
+                <li key={branch.id} className="flex flex-col mb-4">
+                  <div className="flex items-start gap-3">
+                    <FaMapMarkerAlt className="text-gold-500 mt-1 shrink-0" />
+                    <div>
+                      <h4 className="text-white font-serif text-sm font-semibold mb-1">{branch.name}</h4>
+                      <p className="text-gray-400 text-sm leading-relaxed whitespace-pre-line mb-1">{branch.address}</p>
+                      <a href={branch.googleMapsUrl} target="_blank" rel="noreferrer" className="text-gold-500 text-xs hover:underline inline-flex items-center gap-1">Get Directions &rarr;</a>
+                    </div>
+                  </div>
+                </li>
+              ))}
               <li className="flex items-center gap-3">
                 <FaPhoneAlt className="text-gold-500 shrink-0" />
                 <div className="flex flex-col gap-1">
